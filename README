@@ -1,3 +1,14 @@
 Summary
 -------
 Brainomics/Localizer
+
+These are the sources of the Brainomics/Localizer site:
+    https://brainomics.cea.fr/localizer/
+
+Please note that this repository contains a few images that cannot be licensed
+under LGPL because they were obtained under a different license:
+    data/dreamstime_s_28730600.jpg
+    data/dreamstime_s_28829039.jpg
+    data/dreamstime_s_32994616.jpg
+    data/dreamstime_s_33211444.jpg
+    data/favicon.ico
