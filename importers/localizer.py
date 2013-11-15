@@ -89,7 +89,7 @@ def import_center(data_dir):
     elif info['site'] == u'Neurospin':
         data['name'] = u'Neurospin'
         data['department'] = u'Essonne'
-        data['city'] = u'Gif-sur-Yvette'
+        data['city'] = u'Saclay'
         data['country'] = u'France'
     return data
 
