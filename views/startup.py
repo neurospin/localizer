@@ -20,6 +20,8 @@
 
 from cubicweb.predicates import is_instance, authenticated_user, anonymous_user, yes
 from cubicweb.view import EntityView
+from cubicweb.web.views.authentication import LoginPasswordRetriever
+from cubicweb.web.views.authentication import AuthenticationError
 from cubicweb.web.views.primary import PrimaryView
 from cubicweb.web.action import Action
 from cubes.brainomics.views.startup import BrainomicsIndexView
@@ -28,6 +30,20 @@ from cubes.brainomics.views.download import DataZipAuthenticatedView
 from cubes.brainomics.views.download import DataZipAnonymousView
 from cubes.brainomics.views.actions import BrainomicsAbstractDownloadAction, ScanZipFileBox
 ZIP_DOWNLOADABLE = ('Scan',)
+
+###############################################################################
+### AUTHENTICIATION ###########################################################
+###############################################################################
+class LocalizerLoginPasswordRetriever(LoginPasswordRetriever):
+    def authenticated(self, retriever, req, cnx, login, authinfo):
+        """Take care req has no session attached yet, hence req.user
+        isn't available and cnx.user() is a bad idea as well.
+        """
+        cu = cnx.cursor()
+        if cu.execute('Any G WHERE U in_group G, G name "managers", U login %(l)s',
+                      {'l': login}):
+            raise AuthenticationError()
+
 
 ###############################################################################
 ### CARD VIEW #################################################################
@@ -150,10 +166,12 @@ class LegalAction(Action):
 
 def registration_callback(vreg):
     vreg.register_all(globals().values(), __name__,
-                      (LocalizerIndexView, LocalizerDataZipAbstractView,
+                      (LocalizerLoginPasswordRetriever,
+                       LocalizerIndexView, LocalizerDataZipAbstractView,
                        LocalizerDataZipAuthenticatedView,
                        LocalizerDataZipAnonymousView,
                        LocalizerScanZipFileBox))
+    vreg.register_and_replace(LocalizerLoginPasswordRetriever, LoginPasswordRetriever)
     vreg.register_and_replace(LocalizerIndexView, BrainomicsIndexView)
     from cubicweb.web.views.actions import GotRhythmAction
     vreg.unregister(GotRhythmAction)
