@@ -4,7 +4,7 @@
 modname = 'localizer'
 distname = 'cubicweb-localizer'
 
-numversion = (0, 2, 0)
+numversion = (0, 2, 1)
 version = '.'.join(str(num) for num in numversion)
 
 license = 'LGPL'
@@ -15,7 +15,7 @@ web = 'http://brainomics.cea.fr'
 
 __depends__ =  {
     'cubicweb': '>= 3.16.1',
-    'cubicweb-brainomics': None,
+    'cubicweb-brainomics': '< 0.5.0',
 }
 __recommends__ = {}
 
