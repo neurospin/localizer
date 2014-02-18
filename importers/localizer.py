@@ -2,7 +2,6 @@
 
 import sys
 import os
-import os.path as osp
 import re
 import glob
 import csv
@@ -71,7 +70,7 @@ def import_subject(data_dir):
 def import_study(data_dir):
     """Import a study from a data dir"""
     data = {}
-    data['data_filepath'] = osp.abspath(data_dir)
+    data['data_filepath'] = os.path.abspath(data_dir)
     data['name'] = u'localizer'
     data['description'] = u'localizer db'
     return data
@@ -79,7 +78,7 @@ def import_study(data_dir):
 def import_center(data_dir):
     """Import a center"""
     data = {}
-    info = json.load(open('%s/subject.json' % data_dir))
+    info = json.load(open(os.path.join(data_dir, 'subject.json')))
     data['identifier'] = info['site']
     if info['site'] == u'SHFJ':
         data['name'] = u'SHFJ'
@@ -96,7 +95,7 @@ def import_center(data_dir):
 def import_device(data_dir):
     """Import a device"""
     data = {}
-    info = json.load(open('%s/subject.json' % data_dir))
+    info = json.load(open(os.path.join(data_dir, 'subject.json')))
     if info['site'] == u'Neurospin':
         data['name'] = '3T SIEMENS Trio'
         data['manufacturer'] = 'SIEMENS'
@@ -315,9 +314,9 @@ if __name__ == '__main__':
     store = SQLGenObjectStore(session)
     sqlgen_store = True
 
-    root_dir = osp.abspath(sys.argv[4])
-    subjects_dir = osp.join(root_dir, 'subjects')
-    genetics_dir = osp.join(root_dir, 'genetics')
+    root_dir = os.path.abspath(sys.argv[4])
+    subjects_dir = os.path.join(root_dir, 'subjects')
+    genetics_dir = os.path.join(root_dir, 'genetics')
 
     ### Study #################################################################
     study = import_study(data_dir=root_dir)
@@ -431,7 +430,7 @@ if __name__ == '__main__':
         dm_res = store.create_entity('ExternalResource',
                                      name=u'design_matrix',
                                      related_study=study.eid,
-                                     filepath=unicode(osp.relpath(
+                                     filepath=unicode(os.path.relpath(
                                          os.path.join(sid, 'design_matrix.json'),
                                          start=root_dir)))
 
@@ -443,7 +442,7 @@ if __name__ == '__main__':
         measure = gen_measures[subject.identifier]
         measure['platform'] = platform.eid
         measure['related_study'] = study.eid
-        measure['filepath'] = osp.relpath(measure['filepath'], start=root_dir)
+        measure['filepath'] = os.path.relpath(measure['filepath'], start=root_dir)
         measure = store.create_entity('GenomicMeasure', **measure)
         store.relate(measure.eid, 'concerns', subject.eid, subjtype='GenomicMeasure')
         store.relate(gen_assessment.eid, 'generates', measure.eid, subjtype='Assessment')
@@ -460,7 +459,7 @@ if __name__ == '__main__':
             scan_anat['has_data'] = mri_anat.eid
             scan_anat['related_study'] = study.eid
             # Get the relative filepath
-            scan_anat['filepath'] = osp.relpath(scan_anat['filepath'], start=root_dir)
+            scan_anat['filepath'] = os.path.relpath(scan_anat['filepath'], start=root_dir)
             scan_anat = store.create_entity('Scan', **scan_anat)
             store.relate(scan_anat.eid, 'concerns', subject.eid, subjtype='Scan')
             store.relate(scan_anat.eid, 'uses_device', device_id)
@@ -476,7 +475,7 @@ if __name__ == '__main__':
             scan_fmri['has_data'] = mri_fmri.eid
             scan_fmri['related_study'] = study.eid
             # Get the relative filepath
-            scan_fmri['filepath'] = osp.relpath(scan_fmri['filepath'], start=root_dir)
+            scan_fmri['filepath'] = os.path.relpath(scan_fmri['filepath'], start=root_dir)
             scan_fmri = store.create_entity('Scan', **scan_fmri)
             store.relate(scan_fmri.eid, 'concerns', subject.eid, subjtype='Scan')
             store.relate(scan_fmri.eid, 'uses_device', device_id)
@@ -492,12 +491,12 @@ if __name__ == '__main__':
                 mri = store.create_entity('MRIData', **mri)
                 if con_res:
                     con_res['related_study'] = study.eid
-                    con_res['filepath'] = osp.relpath(con_res['filepath'], start=root_dir)
+                    con_res['filepath'] = os.path.relpath(con_res['filepath'], start=root_dir)
                     con_res = store.create_entity('ExternalResource', **con_res)
                 scan['has_data'] = mri.eid
                 scan['related_study'] = study.eid
                 # Get the relative filepath
-                scan['filepath'] = osp.relpath(scan['filepath'], start=root_dir)
+                scan['filepath'] = os.path.relpath(scan['filepath'], start=root_dir)
                 scan = store.create_entity('Scan', **scan)
                 store.relate(scan.eid, 'concerns', subject.eid, subjtype='Scan')
                 store.relate(scan.eid, 'uses_device', device_id)
@@ -515,7 +514,7 @@ if __name__ == '__main__':
         scan['has_data'] = mri.eid
         scan['related_study'] = study.eid
         # Get the relative filepath
-        scan['filepath'] = osp.relpath(scan['filepath'], start=root_dir)
+        scan['filepath'] = os.path.relpath(scan['filepath'], start=root_dir)
         scan = store.create_entity('Scan', **scan)
         store.relate(scan.eid, 'concerns', subject.eid, subjtype='Scan')
         store.relate(scan.eid, 'uses_device', device_id)
