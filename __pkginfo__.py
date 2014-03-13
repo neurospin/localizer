@@ -15,7 +15,7 @@ web = 'http://brainomics.cea.fr'
 
 __depends__ =  {
     'cubicweb': '>= 3.16.1',
-    'cubicweb-brainomics': '< 0.5.0',
+    'cubicweb-brainomics': None,  # actually it should be '< 0.5.0'
     'cubicweb-nologin': None,
 }
 __recommends__ = {}
