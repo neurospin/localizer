@@ -4,7 +4,7 @@
 modname = 'localizer'
 distname = 'cubicweb-localizer'
 
-numversion = (0, 3, 1)
+numversion = (0, 4, 0)
 version = '.'.join(str(num) for num in numversion)
 
 license = 'LGPL'
