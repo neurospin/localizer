@@ -5,7 +5,7 @@ Brainomics/Localizer
 These are the sources of the Brainomics/Localizer site:
     http://brainomics.cea.fr/localizer
 
-The site is built on the CubicWeb framework and additional components:
+The site is built on the CubicWeb framework:
     https://www.cubicweb.org
 
 We developped specific CubicWeb components to describe and visualize
