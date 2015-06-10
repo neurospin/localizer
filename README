@@ -7,7 +7,14 @@ These are the sources of the Brainomics/Localizer site:
 
 The site is built on the CubicWeb framework and additional components:
     https://www.cubicweb.org
+
+We developped specific CubicWeb components to describe and visualize
+neuroimaging and genetic data:
     https://www.cubicweb.org/project/cubicweb-brainomics
+    https://www.cubicweb.org/project/cubicweb-medicalexp
+    https://www.cubicweb.org/project/cubicweb-neuroimaging
+    https://www.cubicweb.org/project/cubicweb-questionnaire
+    https://www.cubicweb.org/project/cubicweb-genomics
 
 Additional components were developped as part of the Brainomics project:
     http://www.brainomics.net
