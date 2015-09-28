@@ -1,6 +1,8 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# copyright 2015 CEA (Saclay, FRANCE), all rights reserved.
+# contact http://brainomics.cea.fr -- mailto:localizer94@cea.fr
 
 import os
 import datetime
