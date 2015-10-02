@@ -220,7 +220,6 @@ def parse_subject_dir(path):
             },
             'TypeData': {
                 'type': 'MRIData',
-                'sequence': 'T1',
                 'shape_x': raw_anat_data['shape_x'],
                 'shape_y': raw_anat_data['shape_y'],
                 'shape_z': raw_anat_data['shape_z'],
@@ -253,7 +252,6 @@ def parse_subject_dir(path):
             },
             'TypeData': {
                 'type': 'MRIData',
-                'sequence': 'T1',
                 'shape_x': anat_data['shape_x'],
                 'shape_y': anat_data['shape_y'],
                 'shape_z': anat_data['shape_z'],
@@ -306,7 +304,6 @@ def parse_subject_dir(path):
             },
             'TypeData': {
                 'type': 'FMRIData',
-                'sequence': 'EPI',
                 'shape_x': raw_bold_data['shape_x'],
                 'shape_y': raw_bold_data['shape_y'],
                 'shape_z': raw_bold_data['shape_z'],
@@ -340,7 +337,6 @@ def parse_subject_dir(path):
             },
             'TypeData': {
                 'type': 'FMRIData',
-                'sequence': 'EPI',
                 'shape_x': bold_data['shape_x'],
                 'shape_y': bold_data['shape_y'],
                 'shape_z': bold_data['shape_z'],
@@ -385,7 +381,6 @@ def parse_subject_dir(path):
             },
             'TypeData': {
                 'type': 'FMRIData',
-                'sequence': None,
                 'shape_x': c_map_data['shape_x'],
                 'shape_y': c_map_data['shape_y'],
                 'shape_z': c_map_data['shape_z'],
@@ -429,7 +424,6 @@ def parse_subject_dir(path):
             },
             'TypeData': {
                 'type': 'FMRIData',
-                'sequence': None,
                 'shape_x': t_map_data['shape_x'],
                 'shape_y': t_map_data['shape_y'],
                 'shape_z': t_map_data['shape_z'],
@@ -466,7 +460,6 @@ def parse_subject_dir(path):
             },
             'TypeData': {
                 'type': 'MRIData',
-                'sequence': None,
                 'shape_x': mask_data['shape_x'],
                 'shape_y': mask_data['shape_y'],
                 'shape_z': mask_data['shape_z'],
