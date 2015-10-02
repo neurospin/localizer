@@ -182,6 +182,7 @@ def parse_subject_dir(path):
             'Assessment': {
                 'identifier': nip + '_demographics',
                 'age_of_subject': age,
+                'timepoint': 'Baseline',
             },
             'Questionnaires': {
                 'demographics': demographics,
@@ -191,6 +192,7 @@ def parse_subject_dir(path):
             'Assessment': {
                 'identifier': nip + '_questionnaire',
                 'age_of_subject': age,
+                'timepoint': 'Baseline',
             },
             'Questionnaires': {
                 'localizer_questionnaire': questionnaire,
@@ -492,6 +494,7 @@ def parse_subject_dir(path):
             'Assessment': {
                 'identifier': nip + '_anat',
                 'age_of_subject': age,
+                'timepoint': 'Baseline',
             },
             'Scans': anat_scans,
         },
@@ -499,6 +502,7 @@ def parse_subject_dir(path):
             'Assessment': {
                 'identifier': nip + '_fmri',
                 'age_of_subject': age,
+                'timepoint': 'Baseline',
             },
             'Scans': fmri_scans,
         },
@@ -506,6 +510,7 @@ def parse_subject_dir(path):
             'Assessment': {
                 'identifier': nip + '_c_maps',
                 'age_of_subject': age,
+                'timepoint': 'Baseline',
             },
             'Scans': c_maps_scans,
         },
@@ -513,6 +518,7 @@ def parse_subject_dir(path):
             'Assessment': {
                 'identifier': nip + '_t_maps',
                 'age_of_subject': age,
+                'timepoint': 'Baseline',
             },
             'Scans': t_maps_scans,
         },
@@ -520,6 +526,7 @@ def parse_subject_dir(path):
             'Assessment': {
                 'identifier': nip + '_mask',
                 'age_of_subject': age,
+                'timepoint': 'Baseline',
             },
             'Scans': mask_scans,
         },
@@ -598,6 +605,7 @@ def parse_genetics(path, bed_bim_fam_basename):
         measure = {
             'Assessment': {
                 'identifier': nip + '_genetics',
+                'timepoint': 'Baseline',
             },
             'GenomicMeasures': [
                 {
