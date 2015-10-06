@@ -310,6 +310,7 @@ def parse_subject_dir(path):
                 'voxel_res_x': raw_bold_data['voxel_res_x'],
                 'voxel_res_y': raw_bold_data['voxel_res_y'],
                 'voxel_res_z': raw_bold_data['voxel_res_z'],
+                'tr': 2.4,  ## both SHFJ and Neurospin (Antonio 2015-10-06)
             },
             'FileSet': {
                 'name': 'preprocessed fMRI',
@@ -542,8 +543,8 @@ def parse_subjects(path):
     """
     subjects = {}
     subject_groups = {}
-    questionnaires = {}
     scans = {}
+    questionnaires = {}
     for subject in os.listdir(path):
         subject_dir = os.path.join(path, subject)
         if not os.path.isdir(subject_dir):
@@ -606,11 +607,16 @@ def parse_genetics(path, bed_bim_fam_basename):
                         'format': 'plink',
                         'chromset': 'all',
                     },
+                    'GenomicPlatform': {
+                        'name': 'Affymetrix 6.0',
+                        'related_snps': [], ### FIXME
+                        'related_subjects': [nip],
+                    },
                 },
             ],
         }
         genetics.append(measure)
-    return genetics
+    return { 'Pasteur': genetics }  # single center for genetics (Antonio 2015-10-06)
 
 
 def main():
