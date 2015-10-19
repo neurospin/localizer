@@ -7,22 +7,18 @@ These are the sources of the Brainomics/Localizer site:
 
 The site is built on the CubicWeb framework:
     https://www.cubicweb.org
+and on the PIWS CubicWeb component:
+    https://github.com/neurospin/piws
 
-We developped specific CubicWeb components to describe and visualize
-neuroimaging and genetic data:
+The PIWS component is an evolution of CubicWeb components developed as part
+of the Brainomics project to describe and visualize neuroimaging and genetic
+data:
     https://www.cubicweb.org/project/cubicweb-brainomics
     https://www.cubicweb.org/project/cubicweb-medicalexp
     https://www.cubicweb.org/project/cubicweb-neuroimaging
     https://www.cubicweb.org/project/cubicweb-questionnaire
     https://www.cubicweb.org/project/cubicweb-genomics
 
-Additional components were developped as part of the Brainomics project:
-    http://www.brainomics.net
-
 Please note that this repository contains a few images that cannot be licensed
-under LGPL because they were obtained under a different license:
-    data/dreamstime_s_28730600.jpg     © Pressureua | Dreamstime.com
-    data/dreamstime_s_28829039.jpg     © Maximus117 | Dreamstime.com
-    data/dreamstime_s_32994616.jpg     © Rukanoga | Dreamstime.com
-    data/dreamstime_s_33211444.jpg     © Štěpán Kápl | Dreamstime.com
+under CeCILL-B because they were obtained under a different license:
     data/favicon.ico                   © CEA

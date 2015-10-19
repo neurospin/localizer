@@ -4,18 +4,18 @@
 modname = 'localizer'
 distname = 'cubicweb-localizer'
 
-numversion = (0, 4, 0)
+numversion = (0, 5, 0)
 version = '.'.join(str(num) for num in numversion)
 
-license = 'LGPL'
+license = 'CeCILL-B'
 author = 'CEA (Saclay, FRANCE)'
 author_email = 'localizer94@cea.fr'
-description = 'Brainomics/Localizer'
-web = 'http://brainomics.cea.fr'
+description = 'Publish the Brainomics/Localizer database on top of PIWS'
+web = 'https://github.com/neurospin/localizer'
 
 __depends__ =  {
-    'cubicweb': '>= 3.16.1',
-    'cubicweb-brainomics': None,  # actually it should be '< 0.5.0'
+    'cubicweb': '>= 3.19.0',
+    'cubicweb-piws': '>= 0.1.0',
 }
 __recommends__ = {}
 

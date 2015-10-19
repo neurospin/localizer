@@ -1,4 +1,4 @@
 """cubicweb-localizer application package
 
-Brainomics/Localizer
+Publish the Brainomics/Localizer database on top of PIWS
 """
