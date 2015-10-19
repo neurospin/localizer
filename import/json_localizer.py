@@ -602,6 +602,7 @@ def parse_genetics(path, bed_bim_fam_basename):
             'GenomicMeasures': [
                 {
                     'GenomicMeasure': {
+                        'label': 'Raw genetics',
                         'identifier': nip + '_genomic_measure',
                         'type': 'SNP',
                         'format': 'plink',
