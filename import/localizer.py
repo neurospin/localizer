@@ -82,11 +82,11 @@ def main():
 
     # import PIWS
     sys.path.append(os.path.expanduser(piws_path))
-    from piws.import.subjects import Subjects
-    from piws.import.scans import Scans
-    from piws.import.questionnaires import Questionnaires
-    from piws.import.genetics import Genetics
-    from piws.import.processings import Processings
+    from piws.importer.subjects import Subjects
+    from piws.importer.scans import Scans
+    from piws.importer.questionnaires import Questionnaires
+    from piws.importer.genetics import Genetics
+    from piws.importer.processings import Processings
 
     # create a CubicWeb session
     config = cwconfig.instance_configuration(instance_name)
