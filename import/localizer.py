@@ -31,13 +31,13 @@ def main():
 
     # subjects
     default = ('/neurospin/brainomics/2012_brainomics_localizer/'
-               'export/json/subjects_2015-10-06.json')
+               'export/json/subjects_2015-10-20.json')
     subjects_file = raw_input('Enter the path to subjects data '
                               '[default: ' + default + ']: ')
     if not subjects_file:
         subjects_file = default
     default = ('/neurospin/brainomics/2012_brainomics_localizer/'
-               'export/json/subjectgroups_2015-10-06.json')
+               'export/json/subjectgroups_2015-10-20.json')
     subjectgroups_file = raw_input('Enter the path to subject groups data '
                                    '[default: ' + default + ']: ')
     if not subjectgroups_file:
@@ -45,7 +45,7 @@ def main():
 
     # scans
     default = ('/neurospin/brainomics/2012_brainomics_localizer/'
-               'export/json/scans_2015-10-06.json')
+               'export/json/scans_2015-10-20.json')
     scans_file = raw_input('Enter the path to scans '
                            '[default: ' + default + ']: ')
     if not scans_file:
@@ -53,7 +53,7 @@ def main():
 
     # demographics and questionnaires
     default = ('/neurospin/brainomics/2012_brainomics_localizer/'
-               'export/json/questionaires_2015-10-06.json')
+               'export/json/questionaires_2015-10-20.json')
     questionnaires_file = raw_input('Enter the path to questionnaire data'
                                     '[default: ' + default + ']: ')
     if not questionnaires_file:
@@ -61,7 +61,7 @@ def main():
 
     # genetics
     default = ('/neurospin/brainomics/2012_brainomics_localizer/'
-               'export/json/genetics_2015-10-06.json')
+               'export/json/genetics_2015-10-20.json')
     genetics_file = raw_input('Enter the path to genetics data '
                               '[default: ' + default + ']: ')
     if not genetics_file:
